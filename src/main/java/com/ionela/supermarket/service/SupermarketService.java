@@ -43,7 +43,7 @@ public class SupermarketService {
     private Map<Long,Integer> createQuantitiesMap(List<ReceiptItemDTO> receiptItems) {
         Map<Long, Integer> itemQuantities = new HashMap<>();
         for (ReceiptItemDTO dto : receiptItems) {
-            itemQuantities.put(dto.getItemId(), itemQuantities.getOrDefault(dto.getItemId(), 0) + dto.getQuantity());
+            itemQuantities.put(dto.itemId(), itemQuantities.getOrDefault(dto.itemId(), 0) + dto.quantity());
         }
         return itemQuantities;
     }
