@@ -5,11 +5,18 @@
     "offers": [
       {
         "quantity": 2,
-        "price": 45.00
+        "price": 45.00,
+        "status": "ACTIVE"
       },
       {
         "quantity": 3,
-        "price": 60.00
+        "price": 60.00,
+        "status": "ACTIVE"
+      },
+      {
+        "quantity": 3,
+        "price": 60.00,
+        "status": "INACTIVE"
       }
     ]
   },
@@ -19,7 +26,8 @@
     "offers": [
       {
         "quantity": 3,
-        "price": 130.00
+        "price": 130.00,
+        "status": "ACTIVE"
       }
     ]
   },

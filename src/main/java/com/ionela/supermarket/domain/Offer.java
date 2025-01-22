@@ -22,6 +22,8 @@ public class Offer {
 
     private BigDecimal price;
 
+    private OfferStatus status;
+
     @ManyToOne
     @JoinColumn(name = "itemId", nullable = false)
     private Item item;

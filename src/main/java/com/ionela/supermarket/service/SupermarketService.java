@@ -2,6 +2,7 @@ package com.ionela.supermarket.service;
 
 import com.ionela.supermarket.domain.Item;
 import com.ionela.supermarket.domain.Offer;
+import com.ionela.supermarket.domain.OfferStatus;
 import com.ionela.supermarket.model.ReceiptItemDTO;
 import com.ionela.supermarket.repository.ItemRepository;
 import org.slf4j.Logger;
@@ -83,8 +84,11 @@ public class SupermarketService {
 
     private BigDecimal computePricePerItem(Item item, Integer quantity) {
         // Retrieve the offers associated with the item
-        List<Offer> offers = item.getOffers();
-        if (offers == null || offers.isEmpty()) {
+        List<Offer> offers = item.getOffers().stream()
+                .filter(o -> o.getStatus() == OfferStatus.ACTIVE)
+                .collect(Collectors.toList());
+
+        if (offers.isEmpty()) {
             logger.debug("No offers available for item: {}. Using regular price {}.", item.getName(), item.getPrice());
             return BigDecimal.valueOf(quantity).multiply(item.getPrice());
         }
