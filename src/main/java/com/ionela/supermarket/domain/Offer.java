@@ -23,5 +23,11 @@ public class Offer {
     @JoinColumn(name = "itemId", nullable = false)
     private Item item;
 
-
+    @Override
+    public String toString() {
+        return "Offer{" +
+                "quantity=" + quantity +
+                ", price=" + price +
+                '}';
+    }
 }
